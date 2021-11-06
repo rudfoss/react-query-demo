@@ -1,0 +1,22 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "dev",
+			"command": "npm start",
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"isBackground": true,			
+			"problemMatcher": {
+				"base": "$tsc-watch",
+				"background": {
+					"activeOnStart": true,
+					"beginsPattern": "npm run",
+					"endsPattern": "｢wdm｣: Compiled successfully"
+				}
+			}
+		}
+	]
+}
