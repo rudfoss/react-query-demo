@@ -3,7 +3,7 @@
 	"tasks": [
 		{
 			"type": "shell",
-			"label": "dev",
+			"label": "start",
 			"command": "npm start",
 			"options": {
 				"cwd": "${workspaceFolder}"
@@ -13,8 +13,8 @@
 				"base": "$tsc-watch",
 				"background": {
 					"activeOnStart": true,
-					"beginsPattern": "npm run",
-					"endsPattern": "｢wdm｣: Compiled successfully"
+					"beginsPattern": "react-scripts start",
+					"endsPattern": "Compiled successfully!"
 				}
 			}
 		}
