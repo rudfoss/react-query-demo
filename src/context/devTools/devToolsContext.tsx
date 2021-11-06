@@ -1,5 +1,6 @@
-import React, { createContext, useContext } from "react"
+import React, { createContext, useCallback, useContext } from "react"
 import { useBrowserStore } from "../../utils/useBrowserStore"
+import { useShortcut } from "../../utils/useShortcut"
 
 interface DevToolsContextProps {
 	isDevToolsEnabled: boolean
@@ -21,8 +22,15 @@ export interface DevToolsProviderProps {
 
 const DevToolsProviderComponent = ({ children }: DevToolsProviderProps) => {
 	const [isDevToolsEnabled, setIsDevToolsEnabled] = useBrowserStore("devTools", false)
-	const setDevToolsEnabled = (enabled?: boolean) =>
-		setIsDevToolsEnabled(enabled ?? !isDevToolsEnabled)
+	const setDevToolsEnabled = useCallback(
+		(enabled?: boolean) => setIsDevToolsEnabled(enabled ?? !isDevToolsEnabled),
+		[setIsDevToolsEnabled, isDevToolsEnabled]
+	)
+
+	useShortcut(
+		"Ctrl+Alt+D",
+		useCallback(() => setDevToolsEnabled(), [setDevToolsEnabled])
+	)
 
 	const value: DevToolsContextProps = { isDevToolsEnabled, setDevToolsEnabled }
 	return <DevToolsContext.Provider value={value}>{children}</DevToolsContext.Provider>
