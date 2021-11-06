@@ -9,7 +9,7 @@ const HeaderComponent = () => {
 	return (
 		<>
 			<Menu />
-			<AppBar>
+			<AppBar position="static">
 				<Toolbar>
 					<IconButton
 						size="large"
