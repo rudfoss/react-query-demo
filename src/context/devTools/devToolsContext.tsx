@@ -12,7 +12,7 @@ DevToolsContext.displayName = "DevTools"
 
 export const useDevTools = () => {
 	const ctx = useContext(DevToolsContext)
-	if (!ctx) throw new Error("useDevTools requires DevTools")
+	if (!ctx) throw new Error("useDevTools must be provided before use")
 	return ctx
 }
 
