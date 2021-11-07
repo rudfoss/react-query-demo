@@ -3,13 +3,14 @@ import {
 	Divider,
 	List,
 	ListItem,
+	ListItemButton,
 	ListItemIcon,
 	ListItemText,
 	SwipeableDrawer
 } from "@mui/material"
 import { useHeader } from "context/header"
 import React from "react"
-import { useNavigate } from "react-router"
+import { useLocation, useNavigate } from "react-router"
 import { useShortcut } from "utils/useShortcut"
 import Home from "@mui/icons-material/Home"
 
@@ -20,13 +21,22 @@ interface MenuItem {
 }
 const menuItems: MenuItem[] = [
 	{
-		path: "/basics",
-		text: "Vanilla Async"
+		path: "/react-query/1",
+		text: "1. Start"
+	},
+	{
+		path: "/react-query/2",
+		text: "2. Vanilla async"
+	},
+	{
+		path: "/react-query/3",
+		text: "3. Robust vanilla async"
 	}
 ]
 
 const MenuComponent = () => {
 	const navigate = useNavigate()
+	const { pathname } = useLocation()
 	const { menuOpen, openMenu } = useHeader()
 	const swipeOpen = () => menuOpen[1](true)
 	const onClose = () => menuOpen[1](false)
@@ -49,14 +59,18 @@ const MenuComponent = () => {
 					</ListItem>
 					<Divider />
 					{menuItems.map((item) => (
-						<ListItem button key={item.path} onClick={nav(item.path)}>
+						<ListItemButton
+							key={item.path}
+							onClick={nav(item.path)}
+							selected={pathname === item.path}
+						>
 							{item.icon && (
 								<ListItemIcon>
 									<item.icon />
 								</ListItemIcon>
 							)}
 							<ListItemText>{item.text}</ListItemText>
-						</ListItem>
+						</ListItemButton>
 					))}
 				</List>
 			</Box>
