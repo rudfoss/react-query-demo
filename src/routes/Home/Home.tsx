@@ -18,17 +18,20 @@ const HomeComponent = () => {
 				<a href="https://react-query.tanstack.com" target="_blank" rel="noreferrer">
 					React-Query
 				</a>
-				. A powerfull and friendly library for communicating with asynchronous data sources such as
+				. A powerful and friendly library for communicating with asynchronous data sources such as
 				REST APIs.
 			</Typography>
-			<hr />
 			<Typography>
-				Click{" "}
-				<Button onClick={goToStart} color="primary" variant="contained">
-					Here
-				</Button>{" "}
-				to get started.
+				Want more?{" "}
+				<a href="https://tkdodo.eu/blog/practical-react-query" target="_blank" rel="noreferrer">
+					Here is a comprehensive guide to using React Query with Typescript
+				</a>
+				.
 			</Typography>
+			<hr />
+			<Button onClick={goToStart} color="primary" variant="contained">
+				Let's begin
+			</Button>{" "}
 		</>
 	)
 }

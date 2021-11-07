@@ -39,7 +39,10 @@ const FirstQueryComponent = () => {
 
 	return (
 		<>
-			<Typography>Let's try again with React-Query</Typography>
+			<Typography>
+				Let's try again with React-Query. This query introduces a fake delay so we can observe state
+				changes.
+			</Typography>
 			<Button variant="contained" onClick={fetchQuery} disabled={isFetching}>
 				Fetch
 			</Button>

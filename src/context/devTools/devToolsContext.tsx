@@ -9,6 +9,7 @@ interface DevToolsContextProps {
 
 const DevToolsContext = createContext<DevToolsContextProps>(undefined as any)
 DevToolsContext.displayName = "DevTools"
+export const DevToolsConsumer = DevToolsContext.Consumer
 
 export const useDevTools = () => {
 	const ctx = useContext(DevToolsContext)
