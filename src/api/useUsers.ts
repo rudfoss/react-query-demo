@@ -1,4 +1,4 @@
-import { useQuery } from "react-query"
+import { useQuery, useQueryClient } from "react-query"
 import { delayedFetch } from "utils/delayedFetch"
 import { User } from "./jsonPlaceholder"
 
@@ -8,4 +8,13 @@ const fetchUsers = async (): Promise<User[]> => {
 	return response.json()
 }
 
-export const useUsers = () => useQuery(["users"], fetchUsers)
+export const useUsers = () => {
+	const client = useQueryClient()
+	return useQuery(["users"], fetchUsers, {
+		// onSuccess: (users) => {
+		// 	for (const user of users) {
+		// 		client.setQueryData(["user", user.id], user)
+		// 	}
+		// }
+	})
+}

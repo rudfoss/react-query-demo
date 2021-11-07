@@ -19,7 +19,7 @@ interface MenuItem {
 	path: string
 	icon?: typeof Home
 }
-const menuItems: MenuItem[] = [
+export const menuItems: MenuItem[] = [
 	{
 		path: "/react-query/1",
 		text: "1. Start"
@@ -39,6 +39,14 @@ const menuItems: MenuItem[] = [
 	{
 		path: "/react-query/5",
 		text: "5. Reuse query"
+	},
+	{
+		path: "/react-query/6",
+		text: "6. Error handling"
+	},
+	{
+		path: "/react-query/7",
+		text: "7. Parameters"
 	}
 ]
 

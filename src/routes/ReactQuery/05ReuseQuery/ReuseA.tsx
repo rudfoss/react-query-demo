@@ -3,9 +3,9 @@ import { useUsers } from "api/useUsers"
 import React, { useMemo, useState } from "react"
 
 const ReuseAComponent = () => {
-	const [selectedUserIndex, setSelectedUserIndex] = useState(0)
-
 	const { data: users = [], isLoading, isFetching } = useUsers()
+
+	const [selectedUserIndex, setSelectedUserIndex] = useState(0)
 	const selectedUser = useMemo(() => users[selectedUserIndex], [selectedUserIndex, users])
 	const selectNextUser = () => setSelectedUserIndex((selectedUserIndex + 1) % users.length)
 
@@ -16,9 +16,11 @@ const ReuseAComponent = () => {
 			onClick={selectNextUser}
 		>
 			{isLoading && <CircularProgress />}
-			<Typography>
-				Users: {users.length}, #{selectedUserIndex} {isFetching && <CircularProgress size={12} />}
-			</Typography>
+			{!isLoading && (
+				<Typography>
+					Users: {users.length}, #{selectedUserIndex} {isFetching && <CircularProgress size={12} />}
+				</Typography>
+			)}
 			{selectedUser && <Typography>Name: {selectedUser.name}</Typography>}
 		</Paper>
 	)

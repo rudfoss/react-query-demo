@@ -1,6 +1,7 @@
 import { Box, Button, ButtonGroup } from "@mui/material"
 import React, { useMemo } from "react"
 import { Outlet, useLocation, useNavigate } from "react-router"
+import { menuItems } from "features/Menu"
 
 const ReactQueryContainerComponent = () => {
 	const { pathname } = useLocation()
@@ -19,17 +20,21 @@ const ReactQueryContainerComponent = () => {
 
 	return (
 		<>
-			<Outlet />
 			<Box>
-				<ButtonGroup sx={{ marginTop: 6 }}>
+				<ButtonGroup sx={{ marginBottom: 3 }}>
 					<Button disabled={currentIndex <= 1} onClick={gotoPrevious}>
 						Previous
 					</Button>
-					<Button variant="contained" onClick={gotoNext}>
+					<Button
+						disabled={currentIndex >= menuItems.length}
+						variant="contained"
+						onClick={gotoNext}
+					>
 						Next
 					</Button>
 				</ButtonGroup>
 			</Box>
+			<Outlet />
 		</>
 	)
 }

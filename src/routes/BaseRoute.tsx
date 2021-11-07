@@ -8,6 +8,8 @@ import { VanillaAsync } from "./ReactQuery/02VanillaAsync"
 import { RobustVanillaAsync } from "./ReactQuery/03RobustVanillaAsync"
 import { FirstQuery } from "./ReactQuery/04FirstQuery"
 import { ReuseQuery } from "./ReactQuery/05ReuseQuery"
+import { ErrorHandling } from "./ReactQuery/06ErrorHandling"
+import { Parameters } from "./ReactQuery/07Parameters"
 import { ReactQueryContainer } from "./ReactQuery/Container"
 
 const BaseRouteComponent = () => (
@@ -21,6 +23,8 @@ const BaseRouteComponent = () => (
 				<Route path="3" element={<RobustVanillaAsync />} />
 				<Route path="4" element={<FirstQuery />} />
 				<Route path="5" element={<ReuseQuery />} />
+				<Route path="6" element={<ErrorHandling />} />
+				<Route path="7" element={<Parameters />} />
 			</Route>
 			<Route path="*" element={<NotFound />} />
 		</Route>
