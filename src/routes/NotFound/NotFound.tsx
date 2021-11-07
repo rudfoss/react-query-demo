@@ -1,14 +1,18 @@
-import { Typography } from "@mui/material"
-import { Box } from "@mui/system"
+import { Typography, Alert, AlertTitle } from "@mui/material"
 import { useHeaderTitle } from "context/header"
 import React from "react"
+import { Link } from "react-router-dom"
 
 const NotFoundComponent = () => {
-	useHeaderTitle("400+4 Not found")
+	useHeaderTitle("Not found")
 	return (
-		<Box>
-			<Typography>Oops... did you mistype?</Typography>
-		</Box>
+		<Alert severity="error">
+			<AlertTitle>404 - Not found</AlertTitle>
+			<Typography>
+				Oops... it appears this page does not exist?{" "}
+				<Link to="/">Try going back home and starting again.</Link>
+			</Typography>
+		</Alert>
 	)
 }
 

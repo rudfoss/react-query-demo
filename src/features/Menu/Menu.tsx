@@ -1,4 +1,12 @@
-import { Box, List, ListItem, ListItemIcon, ListItemText, SwipeableDrawer } from "@mui/material"
+import {
+	Box,
+	Divider,
+	List,
+	ListItem,
+	ListItemIcon,
+	ListItemText,
+	SwipeableDrawer
+} from "@mui/material"
 import { useHeader } from "context/header"
 import React from "react"
 import { useNavigate } from "react-router"
@@ -12,9 +20,8 @@ interface MenuItem {
 }
 const menuItems: MenuItem[] = [
 	{
-		text: "Home",
-		path: "/",
-		icon: Home
+		path: "/basics",
+		text: "Vanilla Async"
 	}
 ]
 
@@ -34,6 +41,13 @@ const MenuComponent = () => {
 		<SwipeableDrawer open={menuOpen[0]} onOpen={swipeOpen} onClose={onClose}>
 			<Box sx={{ width: 250 }}>
 				<List>
+					<ListItem button onClick={nav("/")}>
+						<ListItemIcon>
+							<Home />
+						</ListItemIcon>
+						<ListItemText>Home</ListItemText>
+					</ListItem>
+					<Divider />
 					{menuItems.map((item) => (
 						<ListItem button key={item.path} onClick={nav(item.path)}>
 							{item.icon && (
@@ -41,7 +55,7 @@ const MenuComponent = () => {
 									<item.icon />
 								</ListItemIcon>
 							)}
-							<ListItemText>Home</ListItemText>
+							<ListItemText>{item.text}</ListItemText>
 						</ListItem>
 					))}
 				</List>

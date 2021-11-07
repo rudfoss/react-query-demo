@@ -1,15 +1,16 @@
 import React from "react"
-import Box from "@mui/material/Box"
+import { Box, Container, Paper } from "@mui/material"
 import { Header } from "features/Header"
+import { Outlet } from "react-router"
 
-interface LayoutProps {
-	children: React.ReactChild
-}
-
-const LayoutComponent = ({ children }: LayoutProps) => (
+const LayoutComponent = () => (
 	<Box flexDirection="column">
 		<Header />
-		<Box>{children}</Box>
+		<Container sx={{ marginTop: 2 }}>
+			<Paper sx={{ padding: 2 }}>
+				<Outlet />
+			</Paper>
+		</Container>
 	</Box>
 )
 
