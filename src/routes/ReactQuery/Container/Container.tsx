@@ -1,4 +1,4 @@
-import { Button, ButtonGroup } from "@mui/material"
+import { Box, Button, ButtonGroup } from "@mui/material"
 import React, { useMemo } from "react"
 import { Outlet, useLocation, useNavigate } from "react-router"
 
@@ -20,14 +20,16 @@ const ReactQueryContainerComponent = () => {
 	return (
 		<>
 			<Outlet />
-			<ButtonGroup sx={{ marginTop: 6 }}>
-				<Button disabled={currentIndex <= 1} onClick={gotoPrevious}>
-					Previous
-				</Button>
-				<Button variant="contained" onClick={gotoNext}>
-					Next
-				</Button>
-			</ButtonGroup>
+			<Box>
+				<ButtonGroup sx={{ marginTop: 6 }}>
+					<Button disabled={currentIndex <= 1} onClick={gotoPrevious}>
+						Previous
+					</Button>
+					<Button variant="contained" onClick={gotoNext}>
+						Next
+					</Button>
+				</ButtonGroup>
+			</Box>
 		</>
 	)
 }

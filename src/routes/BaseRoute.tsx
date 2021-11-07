@@ -6,6 +6,8 @@ import { NotFound } from "./NotFound"
 import { GetStarted } from "./ReactQuery/01GetStarted"
 import { VanillaAsync } from "./ReactQuery/02VanillaAsync"
 import { RobustVanillaAsync } from "./ReactQuery/03RobustVanillaAsync"
+import { FirstQuery } from "./ReactQuery/04FirstQuery"
+import { ReuseQuery } from "./ReactQuery/05ReuseQuery"
 import { ReactQueryContainer } from "./ReactQuery/Container"
 
 const BaseRouteComponent = () => (
@@ -17,6 +19,8 @@ const BaseRouteComponent = () => (
 				<Route path="1" element={<GetStarted />} />
 				<Route path="2" element={<VanillaAsync />} />
 				<Route path="3" element={<RobustVanillaAsync />} />
+				<Route path="4" element={<FirstQuery />} />
+				<Route path="5" element={<ReuseQuery />} />
 			</Route>
 			<Route path="*" element={<NotFound />} />
 		</Route>

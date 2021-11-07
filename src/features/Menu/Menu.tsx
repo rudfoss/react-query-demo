@@ -31,6 +31,14 @@ const menuItems: MenuItem[] = [
 	{
 		path: "/react-query/3",
 		text: "3. Robust vanilla async"
+	},
+	{
+		path: "/react-query/4",
+		text: "4. First query"
+	},
+	{
+		path: "/react-query/5",
+		text: "5. Reuse query"
 	}
 ]
 
