@@ -1,29 +1,20 @@
-import { Button, Typography, Box } from "@mui/material"
-import { useUsers } from "api/useUsers"
+import { Typography, Box } from "@mui/material"
 import { useHeaderTitle } from "context/header"
 import React from "react"
 import { ReuseA } from "./ReuseA"
+import { ReuseB } from "./ReuseB"
 
 const ReuseQueryComponent = () => {
 	useHeaderTitle("Reuse query")
-	const { isFetching, refetch } = useUsers()
-	const refetchUsers = () => refetch()
-
 	return (
 		<>
 			<Typography>
-				We can even reuse the query in multiple components and have them all update should the data
-				change.
+				Isolating our query in a custom hook enables us to reuse it in multiple components
 			</Typography>
 			<Box sx={{ display: "flex", justifyContent: "space-between", marginTop: 2, marginBottom: 2 }}>
 				<ReuseA />
-				<ReuseA />
-				<ReuseA />
-				<ReuseA />
+				<ReuseB />
 			</Box>
-			<Button variant="contained" color="primary" onClick={refetchUsers} disabled={isFetching}>
-				Refetch
-			</Button>
 		</>
 	)
 }

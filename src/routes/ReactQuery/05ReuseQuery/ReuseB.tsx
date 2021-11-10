@@ -3,7 +3,7 @@ import { useUsers } from "api/useUsers"
 import { useUser } from "api/useUser"
 import React, { useState } from "react"
 
-const ReuseAComponent = () => {
+const ReuseBComponent = () => {
 	const { data: users = [] } = useUsers()
 	const [selectedUserIndex, setSelectedUserIndex] = useState(1)
 	const { data: user, isLoading, isFetching } = useUser(selectedUserIndex)
@@ -26,4 +26,4 @@ const ReuseAComponent = () => {
 	)
 }
 
-export const ReuseA = React.memo(ReuseAComponent) as unknown as typeof ReuseAComponent
+export const ReuseB = React.memo(ReuseBComponent) as unknown as typeof ReuseBComponent
