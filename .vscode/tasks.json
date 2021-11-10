@@ -14,7 +14,7 @@
 				"background": {
 					"activeOnStart": true,
 					"beginsPattern": "react-scripts start",
-					"endsPattern": "Compiled successfully!"
+					"endsPattern": "Compiled"
 				}
 			}
 		}
