@@ -8,6 +8,7 @@ import {
 	Typography
 } from "@mui/material"
 import { User } from "api/jsonPlaceholder"
+import { useUsers } from "api/useUsers"
 import { useHeaderTitle } from "context/header"
 import React, { useState } from "react"
 import { useQuery } from "react-query"
@@ -22,12 +23,7 @@ const fetchUsers = async (): Promise<User[]> => {
 const FirstQueryComponent = () => {
 	useHeaderTitle("First react-query query")
 	const [enableQuery, setEnableQuery] = useState(false)
-	const {
-		data = [],
-		isLoading,
-		isFetching,
-		refetch
-	} = useQuery(["users"], fetchUsers, { enabled: enableQuery })
+	const { data = [], isLoading, isFetching, refetch } = useUsers()
 
 	const fetchQuery = () => {
 		if (!enableQuery) {

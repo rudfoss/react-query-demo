@@ -11,10 +11,10 @@ const fetchUsers = async (): Promise<User[]> => {
 export const useUsers = () => {
 	const client = useQueryClient()
 	return useQuery(["users"], fetchUsers, {
-		// onSuccess: (users) => {
-		// 	for (const user of users) {
-		// 		client.setQueryData(["user", user.id], user)
-		// 	}
-		// }
+		onSuccess: (users) => {
+			for (const user of users) {
+				client.setQueryData(["user", user.id], user)
+			}
+		}
 	})
 }
